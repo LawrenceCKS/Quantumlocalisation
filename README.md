@@ -4,6 +4,7 @@ This repository accompanies the paper and presentation:
 Pragmatic Indoor Localization with Quantum Computing
 Presented at IEEE WF‑IoT 2025
 Authors: B. H. Kee, C. K. Seow, D. M. S. Baena, J. H. J. Lee
+https://ieeexplore.ieee.org/abstract/document/11270714
 GitHub Repository: https://github.com/LawrenceCKS/Quantumlocalisation
 
 
