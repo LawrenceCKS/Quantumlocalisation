@@ -30,13 +30,13 @@ Reduces complexity from O(MN) to O(log(MN))
 Exploits quantum superposition to compare all fingerprints in parallel
 Uses a Swap Test to compute cosine similarity between fingerprints
 Implements a first‑of‑its‑kind indoor localisation quantum circuit in IBM Qiskit
-Key Innovations (as per slides & paper)
+Key Innovations 
 
-Eigenspace encoding of RSS measurements
-Dimensionality reduction from M APs → 2 Principal Components (PCs)
-Centralisation of PCs to maximise fingerprint angular separation
-Constructive interference for correlated fingerprints
-Destructive interference for uncorrelated fingerprints
+a)Eigenspace encoding of RSS measurements
+  i)Dimensionality reduction from M APs → 2 Principal Components (PCs)
+b)Centralisation of PCs to maximise fingerprint angular separation
+  i) Constructive interference for correlated fingerprints
+  ii)Destructive interference for uncorrelated fingerprints
 
 
 3. Experimental Environment (Offline Phase)
@@ -75,36 +75,36 @@ These properties enable parallel similarity evaluation across fingerprints.
 
 
 6. Proposed Quantum Localisation Algorithm
-The localisation pipeline follows the 8‑stage process exactly as shown in the IEEE WF‑IoT slides:
+The localisation pipeline follows the 8‑stage process exactly as shown in the IEEE WF‑IoT paper:
 
-Initialisation
+Step 1: Initialisation
 Initialise qubits for:
 
 Address
 Offline RSS data
 Online RSS test data
 Ancilla
-Address Superposition
+Step 2 : Address Superposition
 Hadamard gates place all address qubits in superposition → all reference locations exist simultaneously
 
-Address Routing
+Step 3: Address Routing
 Control lines activate one route per reference location
 
-Offline RSS Encoding
+Step 4: Offline RSS Encoding
 Controlled‑U gates encode PC‑based fingerprints in parallel
 → First entanglement between location and fingerprint
 
-Online RSS Encoding
+Step 5: Online RSS Encoding
 Test RSS vector encoded into test qubits
 
-Swap Test (CSWAP)
+Step 6: Swap Test (CSWAP)
 Ancilla‑controlled swap between offline and online data
 → Second entanglement across all qubits
 
-Quantum Interference
+Step 7: Quantum Interference
 Hadamard gate creates constructive/destructive interference based on similarity
 
-Measurement
+Step 8 : Measurement
 Address qubits are measured to obtain probability distribution over locations
 
 
@@ -140,7 +140,6 @@ Requires large number of shots for stable inference
 Current quantum hardware suffers from:Decoherence
 Gate errors
 Limited qubit counts
-QRAM remains theoretical
 
 
 10. Future Work (Aligned with Slides)
@@ -151,22 +150,7 @@ Exploration of NLOS indoor localisation beyond RSS
 Hybrid quantum‑classical localisation pipelines
 
 
-11. Repository Structure
-.
-├── data/               # Raw and processed RSS data (user‑provided)
-├── src/                # PCA preprocessing and quantum localisation code
-├── scripts/            # Simulation entry points
-├── notebooks/          # Reproducibility notebooks
-├── images/             # Figures aligned with paper & slides
-├── docs/               # Extended documentation
-├── README.md
-├── requirements.txt
-└── LICENSE
-
-
-
-
-12. Citation
+11. Citation
 If you use this work, please cite:
 B. H. Kee, C. K. Seow, D. M. S. Baena, and J. H. J. Lee,
 "Pragmatic Indoor Localization with Quantum Computing,"
